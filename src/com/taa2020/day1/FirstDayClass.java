@@ -5,7 +5,7 @@ public class FirstDayClass {
     public static void main(String[] args) {
         boolean predrag = true;
 
-        int Milan = 1;
+        int Milan = 2;
 
     }
 }
