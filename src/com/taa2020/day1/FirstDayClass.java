@@ -6,6 +6,7 @@ public class FirstDayClass {
         boolean predrag = true;
 
         int Milan = 2;
+        int Bojan = 2;
 
     }
 }
