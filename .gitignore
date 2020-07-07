@@ -23,4 +23,5 @@
 hs_err_pid*
 
 # ignore .idea folder
+/target/
 /.idea/
