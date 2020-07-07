@@ -1,4 +1,4 @@
-package main.java.com.taa2020.day1;
+package com.taa2020.day12;
 
 public class Calculator {
 
