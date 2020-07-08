@@ -12,11 +12,12 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import com.taa2020.day12.Calculator;
 
-@Tag("regression")
-@ExtendWith(ReporterTestException.class)
-public class MyTests {
 
-    private static final Logger logger = LogManager.getLogger(MyTests.class);
+@Tag("sanity")
+@ExtendWith(ReporterTestException.class)
+public class MySecondTests {
+
+    private static final Logger logger = LogManager.getLogger(MySecondTests.class);
 
     private static int a;
 
@@ -47,6 +48,8 @@ public class MyTests {
         logger.info(m);
     }
 
+    @Tag("regression")
+    @Tag("security")
     @Test
     public void testSum() {
         // GIVEN
@@ -63,9 +66,9 @@ public class MyTests {
     @BeforeAll
     public static void beforeAllTests() {
         logger.info("Starting my tests suite");
-        a = 2;
-        b = 3;
-        c = 4;
+        a = 20;
+        b = 30;
+        c = 40;
     }
 
     @AfterAll
