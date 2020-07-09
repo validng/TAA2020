@@ -65,7 +65,7 @@ public class MySecondIT {
         int sum = calculator.add2(++a, b++);
 
         // THEN
-        assertThat( sum, is(51) );
+        assertThat( "Sum of numbers failed", sum, is(50) );
 
     }
 

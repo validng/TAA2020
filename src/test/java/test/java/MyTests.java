@@ -1,5 +1,9 @@
 package test.java;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.closeTo;
+import static org.hamcrest.Matchers.is;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterAll;
@@ -10,6 +14,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import com.taa2020.day12.BasicCalculator;
 import com.taa2020.day12.Calculator;
 
 @Tag("regression")
@@ -59,6 +64,19 @@ public class MyTests {
         logger.info(sum);
 
     }
+
+    @Test
+    public void testDivide() {
+        // GIVEN
+        BasicCalculator bc = new BasicCalculator();
+
+        // WHEN
+        double d = bc.divide( 20, 6 );
+
+        // THEN
+        assertThat( d, closeTo(3.3, 0.034) );
+    }
+
 
     @BeforeAll
     public static void beforeAllTests() {
