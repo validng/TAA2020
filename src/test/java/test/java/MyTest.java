@@ -1,5 +1,11 @@
 package test.java;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.closeTo;
+import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterAll;
@@ -10,6 +16,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import com.taa2020.day12.BasicCalculator;
 import com.taa2020.day12.Calculator;
 
 @Tag( "regression" )
@@ -32,7 +39,9 @@ public class MyTest {
 	@BeforeEach
 	public void beforeTest() {
 		logger.info( "@Before Each - Starting test" );
-
+		a = 20;
+		b = 30;
+		c = 40;
 	}
 
 	@AfterEach
@@ -43,9 +52,7 @@ public class MyTest {
 	@BeforeAll
 	public static void beforeAll() {
 		logger.info( "Starting my test suite\n" );
-		a = 2;
-		b = 3;
-		c = 4;
+
 	}
 
 	@AfterAll
@@ -62,7 +69,7 @@ public class MyTest {
 		int sum = calculator.add2( ++a, b++ );
 
 		//THEN
-		logger.info( sum );
+		assertThat(sum, is(51));
 
 	}
 
@@ -75,7 +82,20 @@ public class MyTest {
 		int m = calculator.multiply( a, b, c );
 
 		//THEN
-		logger.info( m );
+		assertEquals( 24000, m );
+		assertTrue(m==24000);
+	}
+
+	@Test
+	public void testDivide(){
+		//GIVEN
+		BasicCalculator bc = new BasicCalculator(  );
+
+		//WHEN
+		Double d= bc.devide( 20,6 );
+
+		//THEN
+		assertThat( result).isEqualTo(-4);
 	}
 
 }
