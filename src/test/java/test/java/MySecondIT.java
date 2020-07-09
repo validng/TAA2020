@@ -1,5 +1,10 @@
 package test.java;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterAll;
@@ -15,9 +20,9 @@ import com.taa2020.day12.Calculator;
 
 @Tag("sanity")
 @ExtendWith(ReporterTestException.class)
-public class MySecondTests {
+public class MySecondIT {
 
-    private static final Logger logger = LogManager.getLogger(MySecondTests.class);
+    private static final Logger logger = LogManager.getLogger( MySecondIT.class);
 
     private static int a;
 
@@ -45,7 +50,8 @@ public class MySecondTests {
         int m = calculator.multiply(a, b, c);
 
         // THEN
-        logger.info(m);
+        assertEquals( 24000, m );
+        assertTrue( m == 24000 );
     }
 
     @Tag("regression")
@@ -59,7 +65,7 @@ public class MySecondTests {
         int sum = calculator.add2(++a, b++);
 
         // THEN
-        logger.info(sum);
+        assertThat( sum, is(51) );
 
     }
 
